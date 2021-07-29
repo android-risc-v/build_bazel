@@ -41,6 +41,17 @@ platform(
     ],
 )
 
+# linux_bionic is the OS for the Linux kernel plus the Bionic libc runtime, but
+# without the rest of Android.
+platform(
+    name = "linux_bionic_riscv64",
+    constraint_values = [
+        "//build/bazel/platforms/arch:riscv64",
+        "//build/bazel/platforms/os:linux_bionic",
+    ],
+)
+
+
 platform(
     name = "linux_bionic_x86_64",
     constraint_values = [
@@ -91,6 +102,15 @@ platform(
         "//build/bazel/platforms/arch:arm64",
         "//build/bazel/platforms/os:android",
     ],
+)
+
+platform(
+    name = "android_riscv64",
+    constraint_values = [
+        "//build/bazel/platforms/arch:riscv64",
+        "//build/bazel/platforms/os:android",
+    ],
+    product = ":android_target",
 )
 
 platform(
